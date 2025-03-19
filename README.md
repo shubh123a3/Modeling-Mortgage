@@ -2,8 +2,8 @@
 # Modeling Mortgage
 
 
-https://github.com/user-attachments/assets/5c0fd90a-c975-49db-93cd-bbfb8365ab83
 
+https://github.com/user-attachments/assets/37375059-65b5-45ca-a6ef-f0c79a052db5
 
 This repository contains Python code for modeling mortgage products using stochastic interest rate models and various mortgage payment schemes. In this project, we simulate interest rate paths using the Hull–White model and use these paths to compute swap rates and mortgage profiles under different assumptions. Two primary mortgage models are implemented: the Bullet Mortgage and the Annuity Mortgage, each incorporating a stochastic prepayment mechanism.
 
@@ -33,7 +33,7 @@ This repository contains Python code for modeling mortgage products using stocha
 
 The objective of this project is to model mortgage products by integrating stochastic interest rate dynamics with mortgage payment structures. The interest rates are simulated using the Hull–White model, and these rates are then used to derive swap rates. Mortgage profiles (i.e., outstanding notional balances) are computed for two types of mortgage products:
 - **Bullet Mortgage:** where only interest and stochastic prepayments are made until a lump-sum principal repayment at maturity.
-- **Annuity Mortgage:** where fixed installments (comprising both interest and scheduled principal repayment) are made, and additional prepayments may occur.
+- **Annuity Mortgage:** where fixed installment payments (comprising both interest and scheduled principal repayment) are made, and additional prepayments may occur.
 
 A stochastic prepayment rate is determined by an incentive function, which captures the borrower's incentive to prepay based on market conditions.
 
@@ -114,21 +114,21 @@ where:
 In the Bullet Mortgage, the borrower makes only interest payments along with any prepayments until the maturity date when the entire remaining principal is due. The key formulas are:
 
 - **Interest Payment at time $t$:**
-  $$
-  I_t = r \cdot N_{t-1},
-  $$
-  where $r$ is the interest rate and $N_{t-1}$ is the outstanding notional at the previous time step.
+$$
+I_t = r \cdot N_{t-1},
+$$
+where $r$ is the interest rate and $N_{t-1}$ is the outstanding notional at the previous time step.
 
 - **Prepayment at time $t$:**
-  $$
-  P_t = \text{CPR}_t \times N_{t-1},
-  $$
-  where $\text{CPR}_t$ is the prepayment rate at time $t$.
+$$
+P_t = \text{CPR}_t \times N_{t-1},
+$$
+where $\text{CPR}_t$ is the prepayment rate at time $t$.
 
 - **Outstanding Notional Update:**
-  $$
-  N_t = N_{t-1} - P_t.
-  $$
+$$
+N_t = N_{t-1} - P_t.
+$$
 
 At maturity, the full remaining principal is repaid.
 
@@ -137,30 +137,30 @@ At maturity, the full remaining principal is repaid.
 The Annuity Mortgage involves fixed installment payments that cover both interest and principal. The formulas used are:
 
 - **Fixed Installment Payment:**
-  $$
-  C_t = \frac{r \cdot N_{t-1}}{1 - (1 + r)^{-m}},
-  $$
-  where $m$ is the number of remaining periods.
+$$
+C_t = \frac{r \cdot N_{t-1}}{1 - (1 + r)^{-m}},
+$$
+where $m$ is the number of remaining periods.
 
 - **Interest Component:**
-  $$
-  I_t = r \cdot N_{t-1}.
-  $$
+$$
+I_t = r \cdot N_{t-1}.
+$$
 
 - **Scheduled Principal Repayment:**
-  $$
-  Q_t = C_t - I_t.
-  $$
+$$
+Q_t = C_t - I_t.
+$$
 
 - **Prepayment:**
-  $$
-  P_t = \text{CPR}_t \times \left( N_{t-1} - Q_t \right).
-  $$
+$$
+P_t = \text{CPR}_t \times \left( N_{t-1} - Q_t \right).
+$$
 
 - **Notional Update:**
-  $$
-  N_t = N_{t-1} - Q_t - P_t.
-  $$
+$$
+N_t = N_{t-1} - Q_t - P_t.
+$$
 
 ### Stochastic Prepayment Modeling
 
@@ -245,9 +245,6 @@ The outputs of the simulation include:
 
 This project is licensed under the [MIT License](LICENSE).
 
----
-
 Feel free to contribute, open issues, or suggest improvements!
 
---- 
-
+----
